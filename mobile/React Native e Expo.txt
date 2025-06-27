@@ -1,0 +1,168 @@
+//###############################################
+// React Native com Expo (nativewind e tailwindcss)
+//###############################################
+
+Definições:
+
+Tailwind CSS =  é um framework de utilitários CSS que permite estilizar seus componentes diretamente com classes
+
+NativeWind = é uma implementação do Tailwind para React Native. Ele permite usar classes do Tailwind em componentes React Native como View, Text, Image, etc.
+
+Babel = Babel é um transpilador de JavaScript que converte código moderno (ES6+) para uma versão compatível com todos os ambientes (como Android, iOS e navegadores).
+
+
+//###############################################
+// A - Figma e Builder.io
+//###############################################
+
+Atualmente existe um extensao do Figma que permite converter os temp´lates para código React Native
+
+Usar extensão builder.io no próprio site do Figma para gerar código React Native
+
+Procurar no Figma por Bazar:
+	Bazar - Books Mobile App - OK (Completo)
+	Bazaar App UI Kit - Não Serve
+	My Bazaar - Não Serve
+	Bazaarly Online Store App - OK (Simples)
+
+
+//###############################################
+// B - Celular
+//###############################################
+
+//***********************************************
+//00 - Instalar expo no Celular
+//***********************************************
+Ir no Market Place ou Google Store e instalar o expo go no celular
+
+
+//###############################################
+// C - Computador
+//###############################################
+
+//***********************************************
+//01 - Criar Projeto no Computador - O firewall da CDHU esta bloqueando, tem que usar outra rede ou do do celular 
+//***********************************************
+npx create-expo-app NomeProjetoApp
+
+cd NomeProjetoApp
+
+
+//***********************************************
+//02 - Instalar NativeWind e Tailwind no Computador
+//***********************************************
+npm install nativewind
+npm install -D tailwindcss
+
+
+//***********************************************
+//03 - Criar arquivo tailwind.config.js
+//***********************************************
+npx tailwindcss init
+
+
+//***********************************************
+//04 - Editar arquivo tailwind.config.js
+//***********************************************
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
+
+//***********************************************
+//05 - Criar arquivo babel.config.js na raiz do projeto
+//***********************************************
+
+
+//***********************************************
+//06 - Editar arquivo babel.config.js
+//***********************************************
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: ['babel-preset-expo'],
+    plugins: ['nativewind/babel'], // <-- aqui!
+  };
+};
+
+
+//***********************************************
+//07 - Criar arquivo global.d.ts na raiz do projeto
+//***********************************************
+
+
+//***********************************************
+//08 - Editar arquivo global.d.ts - ATENÇÃO: Colocar a linha abaixo exatamente como esta embaixo
+//***********************************************
+/// <reference types="nativewind/types" />
+
+
+//***********************************************
+//09 - Convencao Nome dos Arquivos
+//***********************************************
+// arquivo: 	welcome-screen
+// componente: 	WelcomeScreen
+// rota: 	welcome-screen
+
+
+//***********************************************
+//10 - Rotas
+//***********************************************
+// O arquivo _layout.tsx define as rotas
+
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { useFonts } from 'expo-font';
+import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
+import 'react-native-reanimated';
+
+import { useColorScheme } from '@/hooks/useColorScheme';
+
+export default function RootLayout() {
+  const colorScheme = useColorScheme();
+  const [loaded] = useFonts({
+    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  });
+
+  if (!loaded) {
+    // Async font loading only occurs in development.
+    return null;
+  }
+
+  return (
+    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      <Stack screenOptions={{ headerShown: true }} />
+      <StatusBar style="auto" />
+    </ThemeProvider>
+  );
+}
+
+// Usando o expo route, as telas devem ficar dentro do /projeto/app
+// A seguinte linha evita de vc ter que declarar cada uma das rotas e arquivos
+// Usando headerShown: true -> mostra o botão de voltar na tela da app
+
+
+//***********************************************
+//11 - Executar a Aplicacao
+//***********************************************
+npm start --clear
+
+
+//***********************************************
+//12 - Deploy da app para o celular
+//***********************************************
+// O celular e o computador devem obrigatoriamente estarem na mesma rede
+// Scannear QR code gerado no computador
+// A app ser mostrada no celular
+
+
+npx "@builder.io/dev-tools@latest" code --url "https://builder.io/fiddle/473e3a6a398d40208da0992db1d7e018?fromFigma=true" --spaceId 12e8c64382be43c5a803cec86f8f7401
+
