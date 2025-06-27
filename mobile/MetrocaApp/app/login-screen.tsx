@@ -7,7 +7,8 @@ import { SocialLogin } from '../components/login/social-login';
 export const LoginScreen: React.FC = () => {
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
+      <ScrollView className="flex-1" 
+                  showsVerticalScrollIndicator={false}>
         <View className="flex-1">
           {/* Background Image */}
           <View className="absolute top-0 left-0 right-0">

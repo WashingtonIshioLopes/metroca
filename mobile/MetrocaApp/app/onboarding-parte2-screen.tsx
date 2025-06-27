@@ -47,10 +47,15 @@ const OnboardingParte2Screen: React.FC<Onboarding2Props> = ({ onContinue }) => {
           />
 
           {/* Page Indicator */}
-          <PageIndicator totalPages={2} currentPage={1} />
+          <PageIndicator 
+            totalPages={2} 
+            currentPage={1} 
+          />
 
           {/* Footer with Continue Button */}
-          <ContinueButton onPress={handleContinue} />
+          <ContinueButton 
+            onPress={handleContinue} 
+          />
         </View>
       </View>
     </ScrollView>

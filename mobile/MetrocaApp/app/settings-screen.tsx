@@ -40,10 +40,14 @@ const SettingsScreen: React.FC = () => {
 
         <SettingsMenu />
 
-        <LogoutButton onPress={handleLogout} />
+        <LogoutButton 
+          onPress={handleLogout} 
+        />
       </ScrollView>
 
-      <BottomNavigation activeTab="Account" />
+      <BottomNavigation 
+        activeTab="Account" 
+      />
     </View>
   );
 };
