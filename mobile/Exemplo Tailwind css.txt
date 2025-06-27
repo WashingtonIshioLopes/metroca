@@ -1,0 +1,132 @@
+============================
+TAILWIND CSS - EXEMPLOS COM VISUAL NA TELA (React Native + NativeWind)
+============================
+
+FLEXBOX:
+--------
+<View className="flex">
+  <Text>Conteúdo</Text>
+</View>
+// Tela: "Conteúdo" ocupa todo o espaço flexível
+
+<View className="flex-row">
+  <Text>A</Text>
+  <Text>B</Text>
+</View>
+// Tela: "A B" (lado a lado)
+
+<View className="flex-col">
+  <Text>A</Text>
+  <Text>B</Text>
+</View>
+// Tela:
+"A"
+"B"
+
+<View className="justify-center h-40 bg-gray-100">
+  <Text>A</Text>
+</View>
+// Tela (verticalmente centralizado): "A"
+
+<View className="items-center h-40 bg-gray-100">
+  <Text>A</Text>
+</View>
+// Tela (horizontalmente centralizado): "A"
+
+<View className="flex-row gap-2">
+  <Text>A</Text>
+  <Text>B</Text>
+</View>
+// Tela: "A  B" (com espaço entre)
+
+TEXTOS:
+-------
+<Text className="text-sm">Pequeno</Text>
+// Tela: "Pequeno" (fonte pequena)
+
+<Text className="text-2xl">Grande</Text>
+// Tela: "Grande" (fonte bem grande)
+
+<Text className="text-center w-full">Centralizado</Text>
+// Tela (texto centralizado):    "Centralizado"
+
+<Text className="font-bold">Negrito</Text>
+// Tela: "Negrito" (em negrito)
+
+<Text className="font-light">Leve</Text>
+// Tela: "Leve" (fonte mais fina)
+
+<Text className="text-white bg-black">Texto branco</Text>
+// Tela: fundo preto, texto "Texto branco" em branco
+
+CORES DE FUNDO:
+---------------
+<View className="bg-white p-2">
+  <Text>Branco</Text>
+</View>
+// Tela: fundo branco com texto "Branco"
+
+<View className="bg-blue-500 p-2">
+  <Text className="text-white">Azul</Text>
+</View>
+// Tela: fundo azul com texto branco "Azul"
+
+<View className="bg-red-100 p-2">
+  <Text>Vermelho claro</Text>
+</View>
+// Tela: fundo vermelho clarinho com texto
+
+ESPAÇAMENTOS:
+-------------
+<View className="p-4 bg-gray-200">
+  <Text>Com padding</Text>
+</View>
+// Tela: texto com "respiro" ao redor
+
+<View className="mt-6 bg-yellow-200">
+  <Text>Margin Top</Text>
+</View>
+// Tela: espaço acima antes do fundo amarelo
+
+ARREDONDAMENTO E SOMBRA:
+------------------------
+<View className="rounded bg-gray-300 p-2">
+  <Text>Arredondado</Text>
+</View>
+// Tela: cantos suavemente arredondados
+
+<View className="rounded-full bg-green-300 w-20 h-20 items-center justify-center">
+  <Text>O</Text>
+</View>
+// Tela: círculo verde com texto "O" no meio
+
+<View className="shadow-md p-4 bg-white">
+  <Text>Sombra média</Text>
+</View>
+// Tela: caixa com sombra visível
+
+BORDAS:
+-------
+<View className="border border-gray-300 p-2">
+  <Text>Borda</Text>
+</View>
+// Tela: borda fina cinza clara ao redor
+
+<View className="border-t border-red-500 p-2">
+  <Text>Só em cima</Text>
+</View>
+// Tela: linha vermelha no topo
+
+TOQUES E TRANSIÇÕES:
+--------------------
+<Pressable className="bg-blue-500 active:bg-blue-600 p-2 rounded">
+  <Text className="text-white">Pressione</Text>
+</Pressable>
+// Tela: botão azul que escurece ao tocar
+
+<View className="bg-green-400 transition duration-200 p-2">
+  <Text>Com transição suave</Text>
+</View>
+// Tela: animações como cor mudam suavemente
+
+============================
